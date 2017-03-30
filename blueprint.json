@@ -36,8 +36,8 @@
       "name": "collabora",
       "framework": "docker",
       "memory": {
-        "required": "384",
-        "recommended": "512"
+        "required": 384,
+        "recommended": 512
       },
       "http_protocol": "https_only",
       "framework_port_override": "",
@@ -117,26 +117,26 @@
     "environment_variables": [
       {
         "name": "owncloudhost",
-        "value": "owncloud._Engines_Builder(fqdn)",
+        "value": "owncloud._Engines_Builder(domain_name)",
         "mandatory": true,
-        "immutable": false,
         "ask_at_build_time": true,
         "build_time_only": false,
+        "immutable": false,
         "input": {
-          "type": "",
           "label": "Owncloud or NewCloud host name site ",
+          "type": "string",
           "title": "owncloud.mydomain.tld",
           "comment": "",
           "hint": "",
           "placeholder": "",
+          "collection": {
+            "items": {
+            },
+            "include_blank": false
+          },
           "validation": {
             "pattern": "",
             "message": ""
-          },
-          "collection": {
-            "include_blank": false,
-            "items": {
-            }
           }
         }
       },
@@ -144,24 +144,24 @@
         "name": "domain",
         "value": "_Engines_Builder(fqdn)",
         "mandatory": false,
-        "immutable": false,
         "ask_at_build_time": false,
         "build_time_only": false,
+        "immutable": false,
         "input": {
-          "type": "",
           "label": "",
+          "type": "string",
           "title": "",
           "comment": "",
           "hint": "",
           "placeholder": "",
+          "collection": {
+            "items": {
+            },
+            "include_blank": false
+          },
           "validation": {
             "pattern": "",
             "message": ""
-          },
-          "collection": {
-            "include_blank": false,
-            "items": {
-            }
           }
         }
       }

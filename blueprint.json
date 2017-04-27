@@ -14,8 +14,7 @@
         "minor": 1,
         "level": "alpha",
         "patch": 0
-      },
-      "timestamp": null
+      }
     },
     "software": {
       "display": {
@@ -29,21 +28,22 @@
         "label": "GNU GENERAL PUBLIC LICENSE V3",
         "url": "http://www.gnu.org/copyleft/gpl.html"
       }
-    }
+    },
+    "timestamp": "2017-04-27 08:49:45 UTC"
   },
   "software": {
     "base": {
       "name": "collabora",
       "framework": "docker",
-      "memory": {
-        "required": 384,
-        "recommended": 512
-      },
+      "deployment_type": "web",
       "http_protocol": "https_only",
       "framework_port_override": "",
-      "deployment_type": "web",
       "web_root_directory": "",
       "continuous_deployment": false,
+      "memory": {
+        "required": "384",
+        "recommended": "512"
+      },
       "install_form_comment": "",
       "first_run_url": "",
       "installation_report": ""
@@ -119,24 +119,24 @@
         "name": "owncloudhost",
         "value": "owncloud._Engines_Builder(domain_name)",
         "mandatory": true,
+        "immutable": false,
         "ask_at_build_time": true,
         "build_time_only": false,
-        "immutable": false,
         "input": {
-          "label": "Owncloud or NewCloud host name site ",
           "type": "string",
+          "label": "Owncloud or NewCloud host name site ",
           "title": "owncloud.mydomain.tld",
           "comment": "",
           "hint": "",
           "placeholder": "",
-          "collection": {
-            "items": {
-            },
-            "include_blank": false
-          },
           "validation": {
             "pattern": "",
             "message": ""
+          },
+          "collection": {
+            "include_blank": false,
+            "items": {
+            }
           }
         }
       },
@@ -144,24 +144,24 @@
         "name": "domain",
         "value": "_Engines_Builder(fqdn)",
         "mandatory": false,
+        "immutable": false,
         "ask_at_build_time": false,
         "build_time_only": false,
-        "immutable": false,
         "input": {
-          "label": "",
           "type": "string",
+          "label": "",
           "title": "",
           "comment": "",
           "hint": "",
           "placeholder": "",
-          "collection": {
-            "items": {
-            },
-            "include_blank": false
-          },
           "validation": {
             "pattern": "",
             "message": ""
+          },
+          "collection": {
+            "include_blank": false,
+            "items": {
+            }
           }
         }
       }
@@ -208,11 +208,11 @@
 
     ],
     "components": {
+      "path": "",
+      "extract": false,
       "sources": [
 
-      ],
-      "path": "",
-      "extract": false
+      ]
     },
     "workers": {
       "blocking": "",

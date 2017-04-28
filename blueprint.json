@@ -90,7 +90,7 @@
     "installed_packages": [
       {
         "name": "Collabora",
-        "source_url": "https://collabora.com/code/",
+        "source_url": "collabora/code",
         "destination": "lool",
         "extraction_command": "docker",
         "path_to_extracted": "MKNOD"

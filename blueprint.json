@@ -19,34 +19,26 @@
     "software": {
       "display": {
         "title": "Collabora",
-        "label": "Collabora",
-        "version": "",
-        "description": "",
-        "url": ""
+        "label": "Collabora"
       },
       "license": {
         "label": "GNU GENERAL PUBLIC LICENSE V3",
         "url": "http://www.gnu.org/copyleft/gpl.html"
       }
     },
-    "timestamp": "2017-04-27 23:59:51 UTC"
+    "timestamp": "2017-06-08 06:43:02 UTC"
   },
   "software": {
     "base": {
       "name": "collabora",
       "framework": "docker",
+      "parent_image": "collabora/code",
       "deployment_type": "web",
       "http_protocol": "https_only",
-      "framework_port_override": "",
-      "web_root_directory": "",
-      "continuous_deployment": false,
       "memory": {
         "required": 384,
         "recommended": 512
-      },
-      "install_form_comment": "",
-      "first_run_url": "",
-      "installation_report": ""
+      }
     },
     "ports": [
       {
@@ -70,34 +62,16 @@
         "content": "#!/bin/bash\r\n\r\n##Engines Stuff to go in Builder\r\nadduser -q --disabled-password  -uid 11111 data-user\r\ngroupadd -g 22020 containers\r\ngroupadd -g 21999 elogs\r\ngroupadd -g 11111 data-user\r\nusermod -G containers -a lool\r\nusermod -G elogs -a lool\r\nusermod -G data-user -a lool\r\nmkdir /var/run/engines\r\nchgrp containers /var/run/engines\r\nchmod g+w /var/run/engines\t\r\n##-Engines \r\n\r\nchown -R lool /etc/loolwsd\r\n\r\nchown  lool /var/log/\r\n\r\nmkdir /var/run/apache2\r\n\r\nchown  lool  /var/run/apache2\r\nchown  lool -R /etc/apache2/sites-enabled/\r\n\r\na2enmod proxy ssl proxy_wstunnel proxy_http\r\ncp /home/ports.conf /etc/apache2/\r\nsed -i.bak s/www-data/lool/ /etc/apache2/envvars \r\ncp /home/001-default.conf /etc/apache2/sites-enabled/000-default.conf "
       },
       "post_install": {
-        "language": "sh",
-        "content": ""
+        "language": "sh"
       },
       "shutdown": {
-        "language": "sh",
-        "content": ""
+        "language": "sh"
       }
     },
-    "external_repositories": [
-
-    ],
     "system_packages": [
       {
-        "package": "apache2",
-        "version": ""
+        "package": "apache2"
       }
-    ],
-    "installed_packages": [
-      {
-        "name": "Collabora",
-        "source_url": "collabora/code",
-        "destination": "lool",
-        "extraction_command": "docker",
-        "path_to_extracted": "MKNOD"
-      }
-    ],
-    "required_modules": [
-
     ],
     "service_configurations": [
       {
@@ -119,50 +93,18 @@
         "name": "owncloudhost",
         "value": "owncloud._Engines_Builder(domain_name)",
         "mandatory": true,
-        "immutable": false,
         "ask_at_build_time": true,
-        "build_time_only": false,
         "input": {
           "type": "string",
           "label": "Owncloud or NewCloud host name site ",
-          "title": "owncloud.mydomain.tld",
-          "comment": "",
-          "hint": "",
-          "placeholder": "",
-          "validation": {
-            "pattern": "",
-            "message": ""
-          },
-          "collection": {
-            "include_blank": false,
-            "items": {
-            }
-          }
+          "title": "owncloud.mydomain.tld"
         }
       },
       {
         "name": "domain",
         "value": "_Engines_Builder(fqdn)",
-        "mandatory": false,
-        "immutable": false,
-        "ask_at_build_time": false,
-        "build_time_only": false,
         "input": {
-          "type": "string",
-          "label": "",
-          "title": "",
-          "comment": "",
-          "hint": "",
-          "placeholder": "",
-          "validation": {
-            "pattern": "",
-            "message": ""
-          },
-          "collection": {
-            "include_blank": false,
-            "items": {
-            }
-          }
+          "type": "string"
         }
       }
     ],
@@ -188,55 +130,13 @@
         "content": "# If you just change the port or add more ports here, you will likely also\r\n# have to change the VirtualHost statement in\r\n# /etc/apache2/sites-enabled/000-default.conf\r\n\r\n\r\n\r\n<IfModule ssl_module>\r\n        Listen 5222 https\r\n</IfModule>\r\n\r\n<IfModule mod_gnutls.c>\r\n        Listen 5222 https\r\n</IfModule>\r\n\r\n# vim: syntax=apache ts=4 sw=4 sts=4 sr noet"
       }
     ],
-    "replacement_strings": [
-
-    ],
     "database_seed": {
-      "language": "text",
-      "content": "",
-      "script": false
+      "language": "text"
     },
-    "file_write_permissions": [
-
-    ],
     "persistent_directories": [
       {
         "path": "data"
       }
-    ],
-    "persistent_files": [
-
-    ],
-    "components": {
-      "path": "",
-      "extract": false,
-      "sources": [
-
-      ]
-    },
-    "workers": {
-      "blocking": "",
-      "commands": [
-
-      ]
-    },
-    "rake_tasks": [
-
-    ],
-    "custom_php_inis": [
-
-    ],
-    "apache_htaccess_files": [
-
-    ],
-    "apache_httpd_configurations": [
-
-    ],
-    "actionators": [
-
-    ],
-    "schedules": [
-
     ]
   }
 }

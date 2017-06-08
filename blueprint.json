@@ -26,13 +26,14 @@
         "url": "http://www.gnu.org/copyleft/gpl.html"
       }
     },
-    "timestamp": "2017-06-08 06:43:02 UTC"
+    "timestamp": "2017-06-08 07:03:27 UTC"
   },
   "software": {
     "base": {
       "name": "collabora",
       "framework": "docker",
       "parent_image": "collabora/code",
+      "run_as_user": "lool",
       "deployment_type": "web",
       "http_protocol": "https_only",
       "memory": {

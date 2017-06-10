@@ -26,7 +26,7 @@
         "url": "http://www.gnu.org/copyleft/gpl.html"
       }
     },
-    "timestamp": "2017-06-08 07:03:27 UTC"
+    "timestamp": "2017-06-10 01:12:13 UTC"
   },
   "software": {
     "base": {
@@ -56,7 +56,7 @@
     "scripts": {
       "start": {
         "language": "sh",
-        "content": "#!/bin/bash\r\ncd /\r\nPID_FILE=/tmp/col.pid\r\nexport PID_FILE\r\n. /home/trap.sh\r\nif ! test -d /var/log/apache2/\r\n then\r\n  mkdir /var/log/apache2/\r\nfi\r\n\r\ncp /home/loolwsd.xml /etc/loolwsd/loolwsd.xml\r\n\r\n\r\nperl -pi -e \"s/localhost<\\/host>/${domain}<\\/host>/g\" /etc/loolwsd/loolwsd.xml\r\nperl -pi -e \"s/<username desc=\\\"The username of the admin console. Must be set.\\\"><\\/username>/<username desc=\\\"The username of the admin console. Must be set.\\\">${username}<\\/username>/\" /etc/loolwsd/loolwsd.xml\r\nperl -pi -e \"s/<password desc=\\\"The password of the admin console. Must be set.\\\"><\\/password>/<password desc=\\\"The password of the admin console. Must be set.\\\">${password}<\\/password>/g\" /etc/loolwsd/loolwsd.xml\r\n\r\n\r\ncp /engines/ssl/public/certs/_Engines_Builder(fqdn).crt /etc/loolwsd/cert.pem\r\ncp /engines/ssl/public/keys/_Engines_Builder(fqdn).key /etc/loolwsd/key.pem\r\n cp /usr/local/share/ca-certificates/engines_internal_ca.crt  /etc/loolwsd/ca-chain.cert.pem\r\n\r\napachectl  start \r\n\r\nmkdir -p  /engines/var/run/flags/\r\n/usr/bin/loolwsd --version --o:sys_template_path=/opt/lool/systemplate --o:lo_template_path=/opt/collaboraoffice5.1 --o:child_root_path=/opt/lool/child-roots --o:file_server_root_path=/usr/share/loolwsd &\r\n\r\necho -n $! > /tmp/col.pid\r\n\r\ntouch /engines/var/run/flags/startup_complete\r\n\r\n\r\napapid=`cat /var/run/apache2/apache2.pid`\r\necho -n \" $ngpid\" >> /tmp/col.pid\r\nwait\r\nrm /engines/var/run/flags/startup_complete\r\nsleep 600"
+        "content": "#!/bin/bash\r\ncd /\r\nPID_FILE=/tmp/col.pid\r\nexport PID_FILE\r\n. /home/trap.sh\r\nif ! test -d /var/log/apache2/\r\n then\r\n  mkdir /var/log/apache2/\r\nfi\r\n\r\ncp /home/loolwsd.xml /etc/loolwsd/loolwsd.xml\r\n\r\n\r\nperl -pi -e \"s/localhost<\\/host>/${domain}<\\/host>/g\" /etc/loolwsd/loolwsd.xml\r\nperl -pi -e \"s/<username desc=\\\"The username of the admin console. Must be set.\\\"><\\/username>/<username desc=\\\"The username of the admin console. Must be set.\\\">${username}<\\/username>/\" /etc/loolwsd/loolwsd.xml\r\nperl -pi -e \"s/<password desc=\\\"The password of the admin console. Must be set.\\\"><\\/password>/<password desc=\\\"The password of the admin console. Must be set.\\\">${password}<\\/password>/g\" /etc/loolwsd/loolwsd.xml\r\n\r\n\r\ncp /engines/ssl/public/certs/_Engines_Builder(fqdn).crt /etc/loolwsd/cert.pem\r\ncp /engines/ssl/public/keys/_Engines_Builder(fqdn).key /etc/loolwsd/key.pem\r\ncp /usr/local/share/ca-certificates/engines_internal_ca.crt  /etc/loolwsd/ca-chain.cert.pem\r\n\r\napachectl  start \r\n\r\nmkdir -p  /engines/var/run/flags/\r\n/usr/bin/loolwsd --version --o:sys_template_path=/opt/lool/systemplate --o:lo_template_path=/opt/collaboraoffice5.3 --o:child_root_path=/opt/lool/child-roots --o:file_server_root_path=/usr/share/loolwsd &\r\n\r\necho -n $! > /tmp/col.pid\r\n\r\ntouch /engines/var/run/flags/startup_complete\r\n\r\n\r\napapid=`cat /var/run/apache2/apache2.pid`\r\necho -n \" $ngpid\" >> /tmp/col.pid\r\nwait\r\nrm /engines/var/run/flags/startup_complete\r\nsleep 600"
       },
       "install": {
         "language": "sh",

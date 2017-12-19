@@ -2,8 +2,8 @@
   "schema": {
     "type": "app_blueprint",
     "version": {
-      "major": 1,
-      "minor": 0
+      "major": 0,
+      "minor": 1
     },
     "origin": "Engines Developer Studio 0.2"
   },
@@ -26,7 +26,7 @@
         "url": "http://www.gnu.org/copyleft/gpl.html"
       }
     },
-    "timestamp": "2017-06-25T09:44:16+10:00"
+    "timestamp": "2017-12-19T12:29:25+11:00"
   },
   "software": {
     "base": {
@@ -43,13 +43,13 @@
     },
     "ports": [
       {
-        "port": 5222,
-        "external": 5222,
+        "port": "5222",
+        "external": "5222",
         "protocol": "TCP"
       },
       {
-        "port": 9980,
-        "external": 9980,
+        "port": "9980",
+        "external": "9980",
         "protocol": "TCP"
       }
     ],
@@ -77,15 +77,23 @@
     "service_configurations": [
       {
         "publisher_namespace": "EnginesSystem",
-        "type_path": "cert_auth",
+        "type_path": "auth",
         "variables": {
-          "domainname": "_Engines_Builder(fqdn)",
-          "cert_name": "_Engines_Builder(fqdn)",
-          "person": "collabora",
-          "city": "Local",
-          "organisation": "Engines Internal",
-          "state": "NSW",
-          "country": "AU"
+          "kerberos": "_Engines_Builder(engine_name)"
+        }
+      },
+      {
+        "publisher_namespace": "EnginesSystem",
+        "type_path": "certs",
+        "variables": {
+          "country": "",
+          "state": "",
+          "organisation": "",
+          "person": "",
+          "cert_name": null,
+          "domainname": null,
+          "hostname": null,
+          "alt_names": null
         }
       }
     ],

@@ -26,7 +26,7 @@
         "url": "http://www.gnu.org/copyleft/gpl.html"
       }
     },
-    "timestamp": "2018-02-02T12:54:08+11:00"
+    "timestamp": "2018-02-02T14:49:22+11:00"
   },
   "software": {
     "base": {
@@ -143,11 +143,6 @@
     ],
     "database_seed": {
       "language": "text"
-    },
-    "persistent_directories": [
-      {
-        "path": "data"
-      }
-    ]
+    }
   }
 }

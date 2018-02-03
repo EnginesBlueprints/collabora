@@ -26,7 +26,7 @@
         "url": "http://www.gnu.org/copyleft/gpl.html"
       }
     },
-    "timestamp": "2018-02-02T19:30:38+11:00"
+    "timestamp": "2018-02-03T16:23:34+11:00"
   },
   "software": {
     "base": {
@@ -92,7 +92,7 @@
           "organisation": "",
           "person": "",
           "cert_name": "_Engines_Builder(hostname)._Engines_Builder(domain_name)",
-          "domainname": "_Engines_Builder(domain_name)",
+          "domain_name": null,
           "hostname": "_Engines_Builder(hostname)",
           "alt_names": "",
           "install_target": "collabora"
